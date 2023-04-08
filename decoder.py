@@ -1,5 +1,5 @@
 def convert_encoding(input_file: str, output_file: str, input_encoding: str, output_encoding: str):
-    """Generator function to convert encoding of a file."""
+    """Function to convert encoding of a file."""
     with open(input_file, "r", encoding=input_encoding) as f:
         lines = f.readlines()
     with open(output_file, "w", encoding=output_encoding) as f:
