@@ -34,7 +34,7 @@ def main():
     search_word: str = input("Enter the search word: ")
 
     filename: str = "rockyou_utf8.txt"
-    output_filename: str = "output.txt"
+    output_filename: str = "results.txt"
 
     lines: int = write_to_file_and_count_lines(filename, output_filename, search_word)
 
