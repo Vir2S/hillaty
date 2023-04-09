@@ -16,11 +16,12 @@ def read_from_file(filename: str, word: str) -> Generator:
 def write_to_file_and_count(filename: str, output_filename: str, word: str) -> tuple:
     """This function reads data from one file and writes to another file using a generator"""
     lines_counter: int = 0
-    with open(output_filename, "wb") as output_file:
-        for line in read_from_file(filename, word):
-            output_file.write(bytes(f"{line}\n", encoding="utf-8"))
-            lines_counter += 1
-        filesize = asizeof.asizeof(open(output_file.name).read())
+    output_file = open(output_filename, "wb")
+    for line in read_from_file(filename, word):
+        output_file.write(bytes(f"{line}\n", encoding="utf-8"))
+        lines_counter += 1
+    filesize = asizeof.asizeof(open(output_file.name).read())
+    output_file.close()
     return lines_counter, filesize
 
 
