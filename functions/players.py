@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def players_repr(players: list[dict], sorting_key: str = None) -> None:
+def players_repr(players: list[dict], sorting_key: str = "") -> None:
     try:
         players_sorted = sorted(players, key=lambda x: x.get(sorting_key))
     except TypeError:
