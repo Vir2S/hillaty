@@ -21,7 +21,9 @@ def players_add(players: list[dict], player: dict) -> list[dict]:
 
 
 def players_del(players: list[dict], name: str) -> list[dict]:
-    players = [player for player in players if player.get("name").lower() != name.lower()]
+    players = [
+        player for player in players if player.get("name").lower() != name.lower()
+    ]
     print(players)
     return players
 
@@ -51,7 +53,7 @@ def main():
         {"name": "Michael", "age": 33, "number": 23},
         {"name": "Kevin", "age": 32, "number": 7},
         {"name": "Charles", "age": 30, "number": 34},
-        {"name": "Shaquille", "age": 31, "number": 32}
+        {"name": "Shaquille", "age": 31, "number": 32},
     ]
 
     options = ["repr", "add", "del", "find", "get", "exit"]
@@ -62,7 +64,6 @@ def main():
             break
 
         match user_input.lower():
-
             case "repr":
                 if not (sorting_key := input(f"Enter sorting key {sorting_keys}: ")):
                     players_repr(players=team)
@@ -70,28 +71,42 @@ def main():
                     players_repr(players=team, sorting_key=sorting_key)
 
             case "add":
-                if name := input("Enter the player's name: "):
-                    if age := input("Enter player's age: "):
-                        if number := input("Enter player's number: "):
-                            player = {
-                                "name": name.capitalize(),
-                                "age": int(age),
-                                "number": int(number)
-                            }
-                            team = players_add(players=team, player=player)
+                name = input("Enter the player's name: ")
+                age = input("Enter player's age: ")
+                number = input("Enter player's number: ")
+
+                if name and age and number:
+                    player = {
+                        "name": name.capitalize(),
+                        "age": int(age),
+                        "number": int(number),
+                    }
+                    team = players_add(players=team, player=player)
+                else:
+                    print("Invalid input. Please enter all required information.")
 
             case "find":
-                if field := input(f"Enter field you want to search {sorting_keys}: "):
-                    if value := input("Enter value you want to find: "):
-                        players_find(players=team, field=field, value=value)
+                field = input(f"Enter field you want to search {sorting_keys}: ")
+                value = input("Enter value you want to find: ")
+
+                if field and value:
+                    players_find(players=team, field=field, value=value)
+                else:
+                    print("Invalid input. Please enter both field and value to search.")
 
             case "del":
-                if player_name := input("Enter name of the player you want to delete: "):
+                if player_name := input(
+                    "Enter name of the player you want to delete: "
+                ):
                     team = players_del(players=team, name=player_name)
+                else:
+                    print("Invalid input. Please enter player's name to delete.")
 
             case "get":
                 if player_name := input("Enter player's name you want to get: "):
                     players_get_by_name(players=team, name=player_name)
+                else:
+                    print("Invalid input. Please enter player's name to get.")
 
             case "exit":
                 exit()
