@@ -32,7 +32,9 @@ def main():
     output_filename: str = "results.txt"
 
     lines, filesize = write_to_file_and_count(filename, output_filename, search_word)
-    print(f"Total lines in output file: {lines}\nTotal output file size: {filesize} bytes")
+    print(
+        f"Total lines in output file: {lines}\nTotal output file size: {filesize} bytes"
+    )
 
 
 if __name__ == "__main__":
