@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from datetime import datetime
 from datetime import time as t
+from functools import total_ordering
 from typing import List
 
 
@@ -10,6 +11,7 @@ class Creds:
     creds: dict[str, str]
 
 
+@total_ordering
 class Timer:
     def __init__(self, hh=None, mm=None, ss=None):
         if hh and mm and ss:
