@@ -6,7 +6,7 @@ import requests
 
 # CPU-bound task (heavy computation)
 def encrypt_file(path: str):
-    print(f"Processing image from {image_url} in process {os.getpid()}")
+    print(f"Processing file from {path} in process {os.getpid()}")
     # Simulate heavy computation by sleeping for a while
     _ = [i for i in range(100_000_000)]
 
