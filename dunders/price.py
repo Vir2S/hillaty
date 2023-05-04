@@ -39,7 +39,7 @@ class Price:
         if currency == "USD":
             return amount_in_usd
         else:
-            return amount_in_usd * self.EXCHANGE_RATES[currency]
+            return amount_in_usd * self.EXCHANGE_RATES.get(currency)
 
     def __repr__(self) -> str:
         return f"{round(self.amount, 2)} '{self.currency}'"
