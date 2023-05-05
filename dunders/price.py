@@ -1,10 +1,11 @@
-class Price:
-    EXCHANGE_RATES = {
-        "USD": 1,
-        "UAH": 0.036,
-        "GBP": 1.39,
-    }
+EXCHANGE_RATES = {
+    "USD": 1,
+    "UAH": 0.036,
+    "GBP": 1.39,
+}
 
+
+class Price:
     def __init__(self, amount: float, currency: str) -> None:
         self.amount: float = amount
         self.currency: str = currency.upper()
