@@ -18,7 +18,9 @@ def download_image(image_url):
         f"Downloading image from {image_url} in thread {threading.current_thread().name}"
     )
     response = requests.get(image_url)
-    with open("image.jpg", "wb") as f:
+    filename = "image-{}.jpg".format(int(time.time() * 1000))
+
+    with open(filename, "wb") as f:
         f.write(response.content)
 
 
