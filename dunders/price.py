@@ -34,13 +34,13 @@ class Price:
         if currency == "USD":
             return amount
         else:
-            return amount / self.EXCHANGE_RATES.get(currency)
+            return amount / EXCHANGE_RATES.get(currency)
 
     def _convert_from_usd(self, amount_in_usd: float, currency: str) -> float:
         if currency == "USD":
             return amount_in_usd
         else:
-            return amount_in_usd * self.EXCHANGE_RATES.get(currency)
+            return amount_in_usd * EXCHANGE_RATES.get(currency)
 
     def __repr__(self) -> str:
         return f"{round(self.amount, 2)} '{self.currency}'"
