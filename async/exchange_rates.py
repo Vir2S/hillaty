@@ -24,7 +24,8 @@ class ExchangeRates:
 
     async def initialize_data(self, currency_pair):
         exchange_rate = await self._fetch_from_api(currency_pair)
-        self.data[currency_pair] = exchange_rate
+        source, target = currency_pair
+        self.data[f"{source} to {target}"] = exchange_rate
 
     async def _fetch_from_api(self, currency_pairs) -> str:
         async with httpx.AsyncClient() as client:
