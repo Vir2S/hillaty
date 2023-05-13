@@ -29,7 +29,7 @@ class ExchangeRates:
     async def _fetch_from_api(self, currency_pairs) -> str:
         async with httpx.AsyncClient() as client:
             source, target = currency_pairs
-            url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={source}&to_currency={target}&apikey=EIPIAB5X82800NU3"
+            url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={source}&to_currency={target}&apikey=demo"
             response = await client.get(url, timeout=30)
             rate = response.json().get("Realtime Currency Exchange Rate", {}).get("5. Exchange Rate")
             print(f"{source} to {target}: {rate}")
