@@ -44,33 +44,6 @@ erDiagram
   Message ||--|| User : "Message.UserId = User.Id"
 ```
 
-
-**RequestStatus content:**
-| Id | Title |
-| ---: | --- |
-| 1 | New |
-| 2 | NotStarted |
-| 10 | InProgress |
-| 20 | Finished |
-| 21 | Canceled |
-| 22 | Aborted |
-
-**RequestVisibility content:**
-| Id | Title |
-| ---: | --- |
-| 1 | Public |
-| 10 | Private |
-
-**UserRole content:**
-| Id | Title |
-| ---: | --- |
-| 1 | User |
-| 2 | Manager |
-| 2 | Admin |
----
-
-
-
 # Draft of requirements for Support app
 
 1. Authentication    
