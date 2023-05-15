@@ -16,11 +16,11 @@ erDiagram
   Request {
     Int32 Id PK
     String Title "Only 75 characters are allowed"
-    Int32 UserId
+    Int32 UserId FK
     Int32 CurrentManagerId
     Int32 Status
     Int32 Visibility
-    Int32 CategoryId
+    Int32 CategoryId FK
   }
   
   RequestCategory {
@@ -30,23 +30,18 @@ erDiagram
   
   Message {
     Int32 Id PK
-    Int32 RequestId
+    Int32 RequestId FK
     DateTime TimeStamp
     Int32 UserId FK
     String Text "❓ max len = 2000"
   }
   
   RequestCategory ||--|| Request : "Request.CategoryId = RequestCategory.Id"
-  Request ||--|| RequestStatus : "Request.StatusId = RequestStatus.Id"
-  Request ||--|| RequestVisibility : "Request.VisibilityId = RequestVisibility.Id"
   Request ||--|{ Message : "Message.RequestId = Request.Id"
-  Request ||--|| User : "Request.AuthorId = User.Id"
+  Request ||--|| User : "Request.UserId = User.Id"
   Request ||--|| User : "Request.CurrentManagerId = User.Id"
   
-  Message ||--|| User : "Message.AuthorId = User.Id"
-  User }|--|{ UserRole : "Many to many"
-  User ||--|| UserSequrity : "UserSequrity.UserId = User.Id"  
-  
+  Message ||--|| User : "Message.UserId = User.Id"
 ```
 
 
